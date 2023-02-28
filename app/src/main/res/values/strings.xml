@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">BugMovie</string>
+    <string name="start">Начать</string>
+    <string name="score">СЧЁТ:</string>
+</resources>

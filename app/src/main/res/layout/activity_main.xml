@@ -38,4 +38,12 @@
         android:layout_height="wrap_content"
         app:srcCompat="@drawable/bug_best" />
 
+    <TextView
+        android:id="@+id/textScore"
+        android:layout_width="match_parent"
+        android:layout_height="96dp"
+        android:text="SCORE:"
+        android:textSize="34sp"
+        android:textStyle="bold" />
+
 </RelativeLayout>

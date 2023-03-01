@@ -1,5 +1,5 @@
 <resources>
     <string name="app_name">BugMovie</string>
     <string name="start">Начать</string>
-    <string name="score">СЧЁТ:</string>
+    <string name="score">ПОСЛЕДНИЙ СЧЁТ:</string>
 </resources>

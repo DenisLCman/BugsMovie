@@ -37,10 +37,15 @@ public class GameView extends SurfaceView implements Runnable, View.OnTouchListe
     private int screenX;
     private int screenY;
 
+    public static int Score = 0;
+
+
+
+
     //public Bug[] bugs;
 
 
-    public int bugCount = 3;
+    public int bugCount = 6;
     ArrayList<Bug> bugs;
     private SurfaceHolder surfaceHolder;
 
@@ -86,7 +91,6 @@ public class GameView extends SurfaceView implements Runnable, View.OnTouchListe
     }
 
     private void update() {
-
         if(bugs.size() < bugCount - 1){
             bugs.add(new Bug(context, screenX, screenY, true));
         }
@@ -101,14 +105,18 @@ public class GameView extends SurfaceView implements Runnable, View.OnTouchListe
                 canvas.drawColor(Color.BLACK);
 
 
+
                 canvas.drawBitmap(
                         background,
-                        00,
-                        00,
+                        0,
+                        0,
                         paint
                 );
 
                 paint.setColor(Color.WHITE);
+
+
+
 
 
                 for (Bug b : bugs) {
@@ -122,6 +130,13 @@ public class GameView extends SurfaceView implements Runnable, View.OnTouchListe
 
 
                 }
+                paint.setTextSize(50f);
+                canvas.drawText(
+                        "SCORE:" + Score,
+                        50,
+                        100,
+                        paint
+                );
 
 
                 surfaceHolder.unlockCanvasAndPost(canvas);
@@ -170,21 +185,33 @@ public class GameView extends SurfaceView implements Runnable, View.OnTouchListe
         float y;
         x = motionEvent.getX();
         y = motionEvent.getY();
-
+        boolean Flag = false;
         switch (motionEvent.getAction()) {
             case MotionEvent.ACTION_DOWN:
                 for(Bug b : bugs){
                     try {
                         if (b.getDetectCollision().contains((int) x, (int) y)) {
-                            bugs.remove(b);
-                            b.setLife(false);
+                            GameLevel.sp.play(GameLevel.soundIdPunch, 1, 1, 0, 0, 1);
+                            b.setHP(b.getHP()-1);
+                            b.getTrauma();
+                            if(b.getHP() == 0){
+                                bugs.remove(b);
+                                b.setLife(false);
+                                Score+=(b.getType()+1)*10;
+                            }
+                            Flag = true;
                             break;
                         }
                     }
                     catch(Exception ex){
 
                     }
+
                 }
+            if(!Flag){
+                GameLevel.sp.play(GameLevel.soundIdWood, 1, 1, 0, 0, 1);
+                Score-=5;
+            }
 
         }
         return true;

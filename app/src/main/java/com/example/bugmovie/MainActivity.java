@@ -21,12 +21,17 @@ public class MainActivity extends AppCompatActivity {
     private Toast backToast;
     float x;
     float y;
-    TextView tv;
+    static int LastScore = 0;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        TextView tv;
+        tv = findViewById(R.id.textScore);
+        tv.setText("SCORE:" + Integer.toString(LastScore));
+
         Button buttonStart = (Button) findViewById(R.id.buttonStart);
         buttonStart.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -52,7 +57,8 @@ public class MainActivity extends AppCompatActivity {
 
         if(backPressedTime + 2000 > System.currentTimeMillis()){
             backToast.cancel();
-            super.onBackPressed();
+            //super.onBackPressed();
+            this.finishAffinity();
             return;
         }
         else{

@@ -7,43 +7,86 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <ImageView
-        android:id="@+id/imageView4"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:scaleY="1.1"
-        android:src="@drawable/fotor_2023_2_21_15_1_56" />
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/imageView4"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleY="1.1"
+            android:src="@drawable/fotor_2023_2_21_15_1_56"
+            tools:layout_editor_absoluteX="0dp"
+            tools:layout_editor_absoluteY="0dp" />
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="359dp"
+            android:layout_height="399dp"
+            android:layout_marginTop="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/bug_best" />
+
+        <LinearLayout
+            android:layout_width="298dp"
+            android:layout_height="237dp"
+            android:layout_marginStart="50dp"
+            android:layout_marginLeft="50dp"
+            android:layout_marginTop="3dp"
+            android:layout_marginEnd="50dp"
+            android:layout_marginRight="50dp"
+            android:orientation="vertical"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView">
+
+            <Button
+                android:id="@+id/buttonStart"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+
+                android:text="@string/start"
+                android:textSize="48sp" />
+
+            <Button
+                android:id="@+id/buttonSave"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Save Score" />
+
+            <Button
+                android:id="@+id/buttonLoad"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Load Score" />
+        </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <LinearLayout
-        android:id="@+id/start_layout"
-        android:layout_width="320dp"
-        android:layout_height="197dp"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:orientation="horizontal"
-        android:padding="50dp">
-
-        <Button
-            android:id="@+id/buttonStart"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:background="@drawable/button_stroke_black_press_white"
-            android:text="@string/start" />
-    </LinearLayout>
-
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:srcCompat="@drawable/bug_best" />
-
-    <TextView
-        android:id="@+id/textScore"
         android:layout_width="match_parent"
-        android:layout_height="96dp"
-        android:text="SCORE:"
-        android:textSize="34sp"
-        android:textStyle="bold" />
+        android:layout_height="180dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/textScore"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="LAST SCORE:"
+            android:textSize="34sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/textBest"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="BEST SCORE:"
+            android:textSize="34sp"
+            android:textStyle="bold" />
+
+    </LinearLayout>
 
 </RelativeLayout>

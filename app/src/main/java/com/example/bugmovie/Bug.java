@@ -63,7 +63,7 @@ public class Bug implements Runnable,View.OnTouchListener{
 
 
 
-        speed = generator.nextInt(6) + 5;
+        speed = generator.nextInt(6) + 2;
 
         matrix.postScale(0.8f,0.8f);
 
@@ -204,7 +204,7 @@ public class Bug implements Runnable,View.OnTouchListener{
 
 
     public void getTrauma() throws InterruptedException{
-        matrix.postScale(0.9f,0.9f,bitmap.getWidth()/2,bitmap.getHeight()/2);
+        matrix.postScale(0.97f,0.97f,bitmap.getWidth()/2,bitmap.getHeight()/2);
         bitmap = Bitmap.createBitmap(bitmap, 0, 0, bitmap.getWidth(), bitmap.getHeight(), matrix, true);
     }
 
